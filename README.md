@@ -13,9 +13,13 @@ Linux下通过共享缓存构建环形缓冲区以实现文件拷贝
   
   &emsp;3.共享内存，构建环形缓冲区。
 
+将上层目录中的video拷贝到本层目录
 运行效果如下：
 
 &emsp;![运行效果](https://github.com/NickRegistered/myCopy/blob/master/pictures/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C.png)
 
 结果验证：
+
 &emsp;![结果验证](https://github.com/NickRegistered/myCopy/blob/master/pictures/%E7%BB%93%E6%9E%9C%E9%AA%8C%E8%AF%81.png)
+
+通过diff命令比较两个文件，可知两文件相同
