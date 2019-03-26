@@ -40,7 +40,6 @@ struct pipes{
 
 int shPipeID;
 pipes *getPipes(){
-  int shPipeID;
   void *shm = NULL;
 	shPipeID = shmget(PIPE_KEY,sizeof(pipes),0666|IPC_CREAT);
   if(shPipeID == -1){
@@ -52,7 +51,8 @@ pipes *getPipes(){
 }
 
 void delPipes(){
-	if (shmctl(shPipeID,IPC_RMID,0) == -1) {
+	if (shmctl(shPipeID,IPC_RMID,NULL) == -1) {
+		printf("pipeid: %d shmctl errno :%d %s\n",shPipeID,errno,strerror(errno));
 		printf("删除管道共享内存失败\n");
 		return;
 	}
@@ -70,7 +70,6 @@ struct node{
 
 int shBuffID[BUFFER_NUM];
 node *getBuff(){
-	int shBuffID[BUFFER_NUM];
 	void *shm = NULL;
 	int i;
 	node *head,*tail,*p_node;
@@ -95,16 +94,9 @@ node *getBuff(){
 }
 
 void delBuff(node *head){
-	node *p_node,*p_next;
-	p_node = head->next;
-	while(p_node != head){
-		p_next = p_node->next;
-		free(p_node);
-		p_node = p_next;
-	}free(head);
-
 	for(int i=0;i<BUFFER_NUM;++i){
-		if(shmctl(shBuffID[i],IPC_RMID,0) == -1){
+		if(shmctl(shBuffID[i],IPC_RMID,NULL) == -1){
+			printf("bufid:%d shmctl errno :%d %s\n",shBuffID[i],errno,strerror(errno));
 			printf("删除共享缓冲区失败\n");
 			return;
 		}

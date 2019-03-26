@@ -30,7 +30,6 @@ int main(int argc,char *argv[]){
 			close(readPipe[1]);
       close(fdDest);
       delBuff(p_node);
-      delPipes();
       return 0;
 		}
 		writeSize += p_node->buf->len;

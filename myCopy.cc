@@ -17,7 +17,7 @@ void procBar(int *writePipe,int *readPipe){
 			bar[blk] = '=';
 			tempper = percent;
 		}
-		printf("[%-20s] %.2lf%% Source:%dBytes Finished:%dBytes\r",bar,percent*100,totalSize,writeSize);
+		printf("[%-20s] %.2lf%% Total:%dBytes Finished:%dBytes\r",bar,percent*100,totalSize,writeSize);
 	}
 	close(readPipe[0]);
 	putchar('\n');

@@ -29,7 +29,6 @@ int main(int argc,char *argv[]){
 			V(semid,1);
       close(fdSrc);
       delBuff(p_node);
-      delPipes();
 			return 0;
 		}
 		V(semid,1);
