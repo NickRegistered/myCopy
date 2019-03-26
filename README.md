@@ -12,3 +12,10 @@ Linux下通过共享缓存构建环形缓冲区以实现文件拷贝
   &emsp;2.信号灯，对writebuf与readbuf在读写缓冲区的行为上进行同步。
   
   &emsp;3.共享内存，构建环形缓冲区。
+
+运行效果如下：
+
+&emsp;![运行效果](https://github.com/NickRegistered/myCopy/blob/master/pictures/%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C.png)
+
+结果验证：
+&emsp;![结果验证](https://github.com/NickRegistered/myCopy/blob/master/pictures/%E7%BB%93%E6%9E%9C%E9%AA%8C%E8%AF%81.png)
